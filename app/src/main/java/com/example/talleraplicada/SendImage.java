@@ -30,50 +30,44 @@ public class SendImage {
     public boolean sendImage(final String filepath, final String ipAddress, final String option){
 
 
-        try {
-            new AsyncTask<Void, Void, Void>() {
+        new AsyncTask<Void, Void, Void>() {
 
-                @Override
-                protected Void doInBackground(Void... voids) {
+            @Override
+            protected Void doInBackground(Void... voids) {
 
-                    try {
+                try {
 
-                        Socket connect = new Socket(ipAddress, PORT_SERVER);
+                    Socket connect = new Socket(ipAddress, PORT_SERVER);
 
-                        DataOutputStream dos = new DataOutputStream(connect.getOutputStream());
+                    DataOutputStream dos = new DataOutputStream(connect.getOutputStream());
 
-                        String base64Image = getImageInBase64String(filepath);
+                    String base64Image = getImageInBase64String(filepath);
 
-                        String[] imageParts = splitStringInTwoHalf(base64Image);
+                    String[] imageParts = splitStringInTwoHalf(base64Image);
 
-                        String entero = option+"."+imageParts.length;
+                    String entero = option+"."+imageParts.length;
 
-                        dos.write(entero.getBytes());
+                    dos.write(entero.getBytes());
 
-                        for(int i = 0; i < imageParts.length; i++){
-                            dos.write(imageParts[i].getBytes());
-                        }
-
-                        dos.close();
-
-                        connect.close();
-
-                        SUCCESFUL_CONNECTION = true;
-
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        SUCCESFUL_CONNECTION = false;
+                    for(int i = 0; i < imageParts.length; i++){
+                        dos.write(imageParts[i].getBytes());
                     }
 
-                    return null;
+                    dos.close();
+
+                    connect.close();
+
+                    SUCCESFUL_CONNECTION = true;
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    SUCCESFUL_CONNECTION = false;
                 }
 
-            }.execute().get();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+                return null;
+            }
+
+        }.execute();
 
         return SUCCESFUL_CONNECTION;
     }
