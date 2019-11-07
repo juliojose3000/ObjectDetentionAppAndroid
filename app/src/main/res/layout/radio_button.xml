@@ -3,14 +3,12 @@
     android:id="@+id/radio_group"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center"
+    android:gravity="left"
     android:orientation="vertical">
 
     <RadioButton
         android:id="@+id/object_and_scene_detention"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#FFFFFF"
+        style="@style/radioButtonStyle"
         android:checked="true"
         android:text="Deteción de objetos y escenarios" />
 
@@ -20,9 +18,26 @@
 
     <RadioButton
         android:id="@+id/face_analysis"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:checked="false"
-        android:textColor="#FFFFFF"
+        style="@style/radioButtonStyle"
         android:text="Análisis de expreciones faciales" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+    <RadioButton
+        android:id="@+id/shopping"
+        style="@style/radioButtonStyle"
+        android:text="Realizar compras en verdulería" />
+
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+    <RadioButton
+        android:id="@+id/image_moderation"
+        style="@style/radioButtonStyle"
+        android:text="Moderación de imágenes" />
+
 </RadioGroup>

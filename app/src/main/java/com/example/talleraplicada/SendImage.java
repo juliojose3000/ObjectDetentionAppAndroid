@@ -43,6 +43,10 @@ public class SendImage {
 
                     String base64Image = getImageInBase64String(filepath);
 
+                    if(base64Image.equals("Permission denied")){
+                        return null;
+                    }
+
                     String[] imageParts = splitStringInTwoHalf(base64Image);
 
                     String entero = option+"."+imageParts.length;
@@ -125,6 +129,7 @@ public class SendImage {
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
+            return "Permission denied";
         }
 
         Bitmap bm = BitmapFactory.decodeStream(fis);

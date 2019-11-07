@@ -49,9 +49,13 @@ public class MainActivity extends Activity {
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
 
                 if(radioGroup.getCheckedRadioButtonId()==R.id.object_and_scene_detention){
-                    option = "1";
-                }else{
-                    option = "0";
+                    option = "object_and_scene_detention";
+                }else if(radioGroup.getCheckedRadioButtonId()==R.id.face_analysis){
+                    option = "face_analysis";
+                }else if(radioGroup.getCheckedRadioButtonId()==R.id.shopping){
+                    option = "shopping";
+                }else if(radioGroup.getCheckedRadioButtonId()==R.id.image_moderation){
+                    option = "image_moderation";
                 }
 
             }

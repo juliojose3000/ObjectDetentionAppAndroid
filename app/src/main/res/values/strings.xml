@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Send Images</string>
     <string name="chooser_title">Lorem ipsum</string>
-    <string name="choose_file">Select a file</string>
+    <string name="choose_file">Select an image</string>
     <string name="internal_storage">Internal storage</string>
     <string name="empty_directory">Empty Directory</string>
     <string name="storage_removed">Storage was removed or unmounted.</string>
