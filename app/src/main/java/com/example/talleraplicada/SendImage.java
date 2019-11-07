@@ -21,8 +21,6 @@ import java.util.concurrent.ExecutionException;
 
 public class SendImage {
 
-    public static final String IP_SERVER = "192.168.1.12";
-
     public static final int PORT_SERVER = 7000;
 
     public static boolean SUCCESFUL_CONNECTION = true;
@@ -42,10 +40,6 @@ public class SendImage {
                     DataOutputStream dos = new DataOutputStream(connect.getOutputStream());
 
                     String base64Image = getImageInBase64String(filepath);
-
-                    if(base64Image.equals("Permission denied")){
-                        return null;
-                    }
 
                     String[] imageParts = splitStringInTwoHalf(base64Image);
 

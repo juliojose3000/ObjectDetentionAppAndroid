@@ -52,7 +52,7 @@
         android:layout_height="100dp" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/button_choose_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="100dp"
