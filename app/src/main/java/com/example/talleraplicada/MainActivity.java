@@ -78,6 +78,14 @@ public class MainActivity extends Activity {
 
     public void showChooser(View v) {
         // Use the GET_CONTENT intent from the utility class
+
+        ipAddress = editTextIpAddress.getText().toString();
+
+        if(!validIP(ipAddress)){
+            Toast.makeText(this,"Por favor ingrese una dirección ip válida", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         Intent target = FileUtils.createGetContentIntent();
         // Create the chooser Intent
         Intent intent = Intent.createChooser(
@@ -185,6 +193,34 @@ public class MainActivity extends Activity {
                     finish();
                 }
                 break;
+        }
+    }
+
+
+    public static boolean validIP (String ip) {
+        try {
+            if ( ip == null || ip.isEmpty() ) {
+                return false;
+            }
+
+            String[] parts = ip.split( "\\." );
+            if ( parts.length != 4 ) {
+                return false;
+            }
+
+            for ( String s : parts ) {
+                int i = Integer.parseInt( s );
+                if ( (i < 0) || (i > 255) ) {
+                    return false;
+                }
+            }
+            if ( ip.endsWith(".") ) {
+                return false;
+            }
+
+            return true;
+        } catch (NumberFormatException nfe) {
+            return false;
         }
     }
 
