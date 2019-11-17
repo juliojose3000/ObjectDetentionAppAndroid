@@ -118,6 +118,9 @@ public class MainActivity extends Activity {
                             if(!succesfulConnection){
                                 Toast.makeText(MainActivity.this,
                                         "Hubo un problema al conectar con el servidor", Toast.LENGTH_LONG).show();
+                            }else{
+                                Toast.makeText(MainActivity.this,
+                                        "Enviando imágen al servidor...", Toast.LENGTH_LONG).show();
                             }
 
                         } catch (Exception e) {
